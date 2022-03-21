@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Comiverse</string>
+    <string name="title_activity_registration">RegistrationActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="label_for_name_registration">Привет! Мы рады, что ты хочешь присоединиться к нашему сообществу, но для начала мы должны познакомиться поближе. Как тебя зовут?</string>
+    <string name="label_for_photo_registration">Приятно познакомиться! Теперь, если ты хочешь отличаться от остальных гиков, можешь загрузить свою неповторимую фотокарточку для профиля</string>
+    <string name="label_for_login_and_password_registration">Осталось ещё немного! Придумай оригинальный никнейм и суперсложный пароль</string>
+    <string name="label_for_email_registration">Последний этап! Введи свою почту для отправки секретного кода, после чего сообщи его нам для проверки</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/routes"
+    app:startDestination="@id/navMainFragment">
+
+    <fragment
+        android:id="@+id/navMainFragment"
+        android:name="com.example.mycomics.fragments.NavMainFragment"
+        android:label="Главная"
+        tools:layout="@layout/fragment_nav_main" />
+    <fragment
+        android:id="@+id/navBookmarkFragment"
+        android:name="com.example.mycomics.fragments.NavBookmarkFragment"
+        android:label="Закладки"
+        tools:layout="@layout/fragment_nav_bookmark" />
+    <fragment
+        android:id="@+id/navTrackedFragment"
+        android:name="com.example.mycomics.fragments.NavTrackedFragment"
+        android:label="Отслеживаемое"
+        tools:layout="@layout/fragment_nav_tracked" />
+    <fragment
+        android:id="@+id/navReadFragment"
+        android:name="com.example.mycomics.fragments.NavReadFragment"
+        android:label="Прочитанное"
+        tools:layout="@layout/fragment_nav_read" />
+    <fragment
+        android:id="@+id/navUserFragment"
+        android:name="com.example.mycomics.fragments.NavUserFragment"
+        android:label="Профиль"
+        tools:layout="@layout/fragment_nav_user" />
+</navigation>

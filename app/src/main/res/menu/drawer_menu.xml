@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:id="@+id/navMainFragment" android:title="Главная"/>
+        <item android:id="@+id/navBookmarkFragment" android:title="Закладки"/>
+        <item android:id="@+id/navTrackedFragment" android:title="Отслеживаемое"/>
+        <item android:id="@+id/navReadFragment" android:title="Прочитанное"/>
+        <item android:id="@+id/navUserFragment" android:title="Профиль"/>
+</menu>

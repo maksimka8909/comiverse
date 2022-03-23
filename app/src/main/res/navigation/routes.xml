@@ -9,7 +9,11 @@
         android:id="@+id/navMainFragment"
         android:name="com.example.mycomics.fragments.NavMainFragment"
         android:label="Главная"
-        tools:layout="@layout/fragment_nav_main" />
+        tools:layout="@layout/fragment_nav_main" >
+        <action
+            android:id="@+id/action_navMainFragment_to_navComicsDetailFragment"
+            app:destination="@id/navComicsDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navBookmarkFragment"
         android:name="com.example.mycomics.fragments.NavBookmarkFragment"
@@ -30,4 +34,9 @@
         android:name="com.example.mycomics.fragments.NavUserFragment"
         android:label="Профиль"
         tools:layout="@layout/fragment_nav_user" />
+    <fragment
+        android:id="@+id/navComicsDetailFragment"
+        android:name="com.example.mycomics.fragments.NavComicsDetailFragment"
+        android:label="Подробнее"
+        tools:layout="@layout/fragment_nav_comics_detail" />
 </navigation>

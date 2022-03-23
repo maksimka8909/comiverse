@@ -3,10 +3,7 @@ package com.example.mycomics
 import android.graphics.Bitmap
 import android.service.autofill.UserData
 import com.example.mycomics.dataclasses.UserAuthData
-import com.example.mycomics.models.EmailCode
-import com.example.mycomics.models.Genre
-import com.example.mycomics.models.Message
-import com.example.mycomics.models.User
+import com.example.mycomics.models.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -44,6 +41,15 @@ public interface ApiInterface {
 
     @GET("api/User/CheckEmail")
     fun checkEmail(@Query("email")email: String): Call<EmailCode>
+
+    @GET("api/Comic/getComicsIssue")
+    fun getIssues(@Query("idComics")idComics: Int): Call<List<Issue>>
+
+    @GET("api/comicsscore/score")
+    fun getScore(@Query("comicsId")comicsId: Int): Call<Score>
+
+    @GET("api/comic")
+    fun getComics(): Call<List<Comics>>
 
    companion object RetrofitBuilder{
        fun create(): ApiInterface {

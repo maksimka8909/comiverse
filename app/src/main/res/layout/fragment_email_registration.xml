@@ -43,7 +43,6 @@
         android:maxLines="1"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:textColor="@color/white"
         android:id="@+id/btnSendCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,6 +50,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
+        android:textColor="@color/white"
         android:fontFamily="@font/nunitoregular"
         android:background="@drawable/round_shape_button"
         android:text="Отправить код"

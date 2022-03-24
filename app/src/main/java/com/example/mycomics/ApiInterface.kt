@@ -2,6 +2,7 @@ package com.example.mycomics
 
 import android.graphics.Bitmap
 import android.service.autofill.UserData
+import com.example.mycomics.dataclasses.Track
 import com.example.mycomics.dataclasses.UserAuthData
 import com.example.mycomics.models.*
 import okhttp3.MultipartBody
@@ -18,6 +19,9 @@ public interface ApiInterface {
     @GET("api/user")
     fun getUsers(): Call<List<User>>
 
+    @GET("api/user/{id}")
+    fun getUser(@Path("id")idUser: Int): Call<User>
+
     @GET("api/genre")
     fun getGenres(): Call<List<Genre>>
 
@@ -29,6 +33,14 @@ public interface ApiInterface {
                 @Part("password")password : String,
                 @Part("email")email: String): Call<Message>
 
+    @POST("api/trackedComic/putTrack")
+    fun putTrack(@Body tracked: Track): Call<Message>
+
+    @GET("api/trackedComic/getComics")
+    fun getTrackedComics(@Query("idUser")idUser: Int): Call<List<Comics>>
+
+    @GET("api/comic/search")
+    fun search(@Query("searchRequest")searchRequest:String): Call<List<Comics>>
 
     @POST("api/user/auth")
     fun authUser(@Body userAuth : UserAuthData): Call<User>
@@ -58,7 +70,7 @@ public interface ApiInterface {
        fun create(): ApiInterface {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://u1612286.plsk.regruhosting.ru/")
+                .baseUrl("https://makachuka.xyz/")
                 .build()
             return retrofit.create(ApiInterface::class.java);
         }

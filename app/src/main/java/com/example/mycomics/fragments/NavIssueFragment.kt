@@ -64,20 +64,64 @@ class NavIssueFragment : Fragment() {
                 Log.i("LOL","${images}")
             }
         })
+        pvPage.setOnClickListener {
+            if(images==null)
+            {
+                val myAlertDialog = AlertDialog()
+                val manager = requireActivity().supportFragmentManager
+                val transaction = manager.beginTransaction()
+                var args = Bundle()
+                args.putString("message","Что-то пошло не так повторите попытку или обратитесь в службу поддержки")
+                myAlertDialog.arguments = args
+                myAlertDialog.show(transaction,"dialog")
+            }
+            else {
+                if (counter != images.size) {
+                    counter = counter + 1
+                    Picasso.get().load(images[counter]).into(pvPage)
+                    countPage.text = "${counter + 1}/${images.size}"
+                }
+            }
+        }
         btnNext.setOnClickListener {
-            if (counter!=images.size){
-                counter=counter+1
-                Picasso.get().load(images[counter]).into(pvPage)
-                countPage.text = "${counter+1}/${images.size}"
+            if(images==null)
+            {
+                val myAlertDialog = AlertDialog()
+                val manager = requireActivity().supportFragmentManager
+                val transaction = manager.beginTransaction()
+                var args = Bundle()
+                args.putString("message","Что-то пошло не так повторите попытку или обратитесь в службу поддержки")
+                myAlertDialog.arguments = args
+                myAlertDialog.show(transaction,"dialog")
+            }
+            else {
+                if (counter != images.size) {
+                    counter = counter + 1
+                    Picasso.get().load(images[counter]).into(pvPage)
+                    countPage.text = "${counter + 1}/${images.size}"
+                }
             }
 
         }
 
         btnBack.setOnClickListener {
-            if(counter!=0){
-                counter=counter-1
-                Picasso.get().load(images[counter]).into(pvPage)
-                countPage.text = "${counter+1}/${images.size}"
+            if(images==null)
+            {
+                val myAlertDialog = AlertDialog()
+                val manager = requireActivity().supportFragmentManager
+                val transaction = manager.beginTransaction()
+                var args = Bundle()
+                args.putString("message","Что-то пошло не так повторите попытку или обратитесь в службу поддержки")
+                myAlertDialog.arguments = args
+                myAlertDialog.show(transaction,"dialog")
+            }
+            else
+            {
+                if (counter != 0) {
+                    counter = counter - 1
+                    Picasso.get().load(images[counter]).into(pvPage)
+                    countPage.text = "${counter + 1}/${images.size}"
+                }
             }
 
         }

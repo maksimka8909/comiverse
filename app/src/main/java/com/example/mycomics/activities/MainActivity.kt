@@ -23,8 +23,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //val imageView = findViewById<PhotoView>(R.id.imageSource)
-        //Picasso.get().load("https://u1612286.plsk.regruhosting.ru\\\\Comics\\\\2\\\\archive_2221_41016\\\\001.jpg").into(imageView)
         val btnReg = findViewById<Button>(R.id.btnReg)
         val btnAuth = findViewById<Button>(R.id.btnEnter)
         val etLogin = findViewById<EditText>(R.id.etLogin)

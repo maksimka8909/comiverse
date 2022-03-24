@@ -1,3 +1,8 @@
 package com.example.mycomics.dataclasses
 
-data class Track()
+import com.google.gson.annotations.SerializedName
+
+data class Track(
+    @SerializedName("idComics") val idComics : Int,
+    @SerializedName("idUser") val idUser : Int
+)

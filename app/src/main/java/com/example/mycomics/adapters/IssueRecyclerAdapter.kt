@@ -3,6 +3,7 @@ package com.example.mycomics.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +18,10 @@ class IssueRecyclerAdapter(private val issues: List<Issue>) : RecyclerView.Adapt
 
     interface onItemClickListener{
 
-        fun onItemClick(position: Int)
+        fun onNumberClick(position: Int)
+        fun onDateClick(position: Int)
+        fun onNameClick(position: Int)
+        fun onDownloadClick(position: Int)
 
     }
 
@@ -30,12 +34,35 @@ class IssueRecyclerAdapter(private val issues: List<Issue>) : RecyclerView.Adapt
         val number = itemView.findViewById<TextView>(R.id.tvNumber)
         val name = itemView.findViewById<TextView>(R.id.tvIssueName)
         val date = itemView.findViewById<TextView>(R.id.tvDate)
+        val download = itemView.findViewById<Button>(R.id.btnDownload)
         init {
 
-            itemView.setOnClickListener {
+            number.setOnClickListener {
 
 
-                listener.onItemClick(adapterPosition)
+                listener.onNumberClick(adapterPosition)
+
+
+            }
+            date.setOnClickListener {
+
+
+                listener.onDateClick(adapterPosition)
+
+
+            }
+            name.setOnClickListener {
+
+
+                listener.onNameClick(adapterPosition)
+
+
+            }
+            download.setOnClickListener {
+
+
+                listener.onDownloadClick(adapterPosition)
+
 
             }
 

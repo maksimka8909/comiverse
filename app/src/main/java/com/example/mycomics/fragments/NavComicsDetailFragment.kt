@@ -94,6 +94,21 @@ class NavComicsDetailFragment : Fragment() {
                     LinearLayoutManager.VERTICAL,true)
                 var adapter = IssueRecyclerAdapter(response.body().orEmpty())
                 recyclerView.adapter = adapter
+                adapter.setOnItemClickListener(
+                    object : IssueRecyclerAdapter.onItemClickListener {
+                        override fun onItemClick(position: Int) {
+                            val bundle = Bundle()
+                            bundle.putInt("idIssue", response.body()!![position].id)
+                            val transaction: FragmentTransaction =
+                                fragmentManager!!.beginTransaction()
+                            val newFragment = NavIssueFragment()
+                            newFragment.arguments = bundle
+                            transaction.replace(R.id.navFragment, newFragment)
+                            transaction.addToBackStack(null)
+                            transaction.commit()
+                        }
+                    })
+
             }
         })
         btnTrack.setOnClickListener {

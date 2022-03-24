@@ -45,6 +45,9 @@ public interface ApiInterface {
     @GET("api/Comic/getComicsIssue")
     fun getIssues(@Query("idComics")idComics: Int): Call<List<Issue>>
 
+    @GET("/api/issue/getissueimages")
+    fun getIssueImages(@Query("issueId")idComics: Int): Call<List<String>>
+
     @GET("api/comicsscore/score")
     fun getScore(@Query("comicsId")comicsId: Int): Call<Score>
 

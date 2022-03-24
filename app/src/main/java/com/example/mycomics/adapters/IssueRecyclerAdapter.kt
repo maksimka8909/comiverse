@@ -13,14 +13,34 @@ import com.squareup.picasso.Picasso
 
 class IssueRecyclerAdapter(private val issues: List<Issue>) : RecyclerView.Adapter<IssueRecyclerAdapter.MyViewHolder>() {
 
+    private lateinit var mListener: IssueRecyclerAdapter.onItemClickListener
 
+    interface onItemClickListener{
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        fun onItemClick(position: Int)
+
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener){
+        mListener = listener
+    }
+
+    class MyViewHolder(itemView: View,listener: IssueRecyclerAdapter.onItemClickListener) : RecyclerView.ViewHolder(itemView){
 
         val number = itemView.findViewById<TextView>(R.id.tvNumber)
         val name = itemView.findViewById<TextView>(R.id.tvIssueName)
         val date = itemView.findViewById<TextView>(R.id.tvDate)
+        init {
 
+            itemView.setOnClickListener {
+
+
+                listener.onItemClick(adapterPosition)
+
+            }
+
+
+        }
     }
 
     override fun onCreateViewHolder(
@@ -30,7 +50,7 @@ class IssueRecyclerAdapter(private val issues: List<Issue>) : RecyclerView.Adapt
         val itemView =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.issue_recyclerview_item, parent, false)
-        return IssueRecyclerAdapter.MyViewHolder(itemView)
+        return IssueRecyclerAdapter.MyViewHolder(itemView,mListener)
     }
 
     override fun onBindViewHolder(holder: IssueRecyclerAdapter.MyViewHolder, position: Int) {
